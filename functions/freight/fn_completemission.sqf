@@ -1,22 +1,19 @@
 //vehicle check
-
 _vehicle = player getVariable ["Vehicle", 0];
 _objects = nearestObjects [player, [_vehicle], 50]; 
 if(count(_objects) isEqualTo 0) exitWith {
 	hintSilent parseText "<t align='center'><t color='#ff4c4c'><t size='2.2'>Error</t></t></t><br/><br/> You need to use the assigned vehicle..";
 };
 
-//_sign = (_this select 0);
-
-// gets players stats
+//gets players stats
 _money = player getVariable ["Money", 0];
 _payment = player getVariable ["Payment", 0];
 _timestarted = player getVariable ["timeStarted", 0];
-(_this select 0) removeAction 1; //removes complete mission from sign
+(_this select 0) removeAction 1;//removes complete mission from sign
 
 _timedifference = time - _timestarted;
-//used in and out of scopes
-_damage = 0;_damagecost = 0;_success = "";_newmoney = 0;_oops = "";_timebonus = 0;
+_damage = 0;_damagecost = 0;_success = "";_newmoney = 0;_oops = "";_timebonus = 0;//used in and out of scopes
+
 //deletes vehicle
 {
 	_var = _x getVariable ["hasMission", false];
@@ -26,7 +23,7 @@ _damage = 0;_damagecost = 0;_success = "";_newmoney = 0;_oops = "";_timebonus = 
 	} 
 }foreach _objects;
 
-//checks vehicle damage for bonus/repair 
+//checks vehicle damage for time/repair bonus 
 if (_timedifference > 170) then {_timebonus = 0.25;};
 if (_damage > 0.0) then {
 	_damagecost = _payment / (_damage * 100);

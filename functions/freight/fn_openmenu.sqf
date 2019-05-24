@@ -39,21 +39,22 @@ while {!(isNull(findDisplay 1234))} do {
 	private _cargoweight = 0;
 	private _price = 0;
 	private _loc = "";
-
+	//getting location of selected destination
 	switch (_selecteddesination) do {
 		case "Kavala Air Garage": {_loc = getPos signfour};
 		case "Molos Airfield": {_loc = getPos signthree};
 		case "Athira Airport": {_loc = getPos signtwo};
 		case "Therisa Airfield": {_loc = getPos signone};
 	};
+	//setting cargoweight
 	switch (_selectedcargo) do {
-		case "Apples": {_cargoweight = 1;_price = 1};
-		case "Peaches": {_cargoweight = 2;_price = 2};
-		case "Beer": {_cargoweight = 4;_price = 4};
-		case "Whiskey": {_cargoweight = 6;_price = 6};
+		case "Apples": {_cargoweight = 1;};
+		case "Peaches": {_cargoweight = 2;};
+		case "Beer": {_cargoweight = 4;};
+		case "Whiskey": {_cargoweight = 6;};
 	};
 	_overallamount = round(_vehicleweight / _cargoweight);
-	_payment = round(((_index + 1)*10)*_price / _cargoweight);
+	_payment = round(((_index + 1)*10));
 	_text = parseText format ["<t align='center'><t size='2'>Job Details</t></t><br/><br/><br/><t align='left'>Vehicle: %1</t><br/><t align='left'>Vehicle Max Weight: %2</t><br/><t align='left'>Desination: %3</t><br/><br/><t align='left'>Pojected Payment: £%4</t>", _selectedvehicle, _vehicleweight, _selecteddesination, _payment];
 	((uiNamespace getVariable "airfreight_dialog") displayCtrl 1100) ctrlSetStructuredText _text;
 	sleep 0.1;

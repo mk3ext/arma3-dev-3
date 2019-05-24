@@ -49,7 +49,7 @@ player setVariable ["timeStarted", time, false];
 //gets nearest system map marker for vehicle spawn
 _referencePos = getPosWorld player; 
 _sortedByRange = [allMapMarkers,[],{_referencePos distanceSqr getMarkerPos _x},"ASCEND"] call BIS_fnc_sortBy; 
-_sortedByRange params ["_nearestMarker"];
+private _nearestMarker = _sortedByRange select 0;
 _selectedvehicle createVehicle (getMarkerPos _nearestMarker);//creates vehicle
 
 _objects = nearestObjects [player, [_selectedvehicle], 50]; 
