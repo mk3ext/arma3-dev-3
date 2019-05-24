@@ -24,9 +24,9 @@ while {!(isNull(findDisplay 1234))} do {
 	_destinationindex = lbCurSel 1700;
 	_cargoindex = lbCurSel 1800;
 	//fix cursor selection if breaks
-	if (_index == -1) then {_index = 0;lbSetCurSel [1500, 0];};
-	if (_destinationindex == -1) then {_destinationindex = 0;lbSetCurSel [1700, 0];};
-	if (_cargoindex == -1) then {_cargoindex = 0;lbSetCurSel [1800, 0];};
+	if (_index isEqualTo -1) then {_index = 0;lbSetCurSel [1500, 0];};
+	if (_destinationindex isEqualTo -1) then {_destinationindex = 0;lbSetCurSel [1700, 0];};
+	if (_cargoindex isEqualTo -1) then {_cargoindex = 0;lbSetCurSel [1800, 0];};
 
 	//get values
 	_selectedvehicle = lbText [1500, _index];

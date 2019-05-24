@@ -24,7 +24,7 @@ _damage = 0;_damagecost = 0;_success = "";_newmoney = 0;_oops = "";_timebonus = 
 }foreach _objects;
 
 //checks vehicle damage for time/repair bonus 
-if (_timedifference > 170) then {_timebonus = 0.25;};
+if (_timedifference > 170) then {_timebonus isEqualTo 0.25;};
 if (_damage > 0.0) then {
 	_damagecost = _payment / (_damage * 100);
 	_newmoney = ((_money + _payment) - _damagecost)*_timebonus;
